@@ -3,7 +3,7 @@ import * as THREE from 'three';
 // import OrbitControls and Stats
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {TeapotGeometry} from 'three/examples/jsm/geometries/TeapotGeometry';
-// import {Stats} from 'three/examples/jsm/libs/stats.module';
+import Stats from 'three/examples/jsm/libs/stats.module.js';
 // Create a new scene
 const scene = new THREE.Scene();
 
@@ -28,6 +28,7 @@ const teapotGeometry = new TeapotGeometry(1,9);
 
 const Material = new THREE.MeshNormalMaterial();
 
+const stats = new Stats();
 
 // Create a basic material with a red color and wireframe
 // const material = new THREE.MeshBasicMaterial({
@@ -65,6 +66,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 // Add the renderer's DOM element to the page
 document.body.appendChild(renderer.domElement);
 
+document.body.appendChild(stats.dom);
 // Animation function
 function animate() {
   // Rotate the mesh
